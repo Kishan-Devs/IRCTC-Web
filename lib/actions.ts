@@ -61,28 +61,40 @@ export async function createBookingAction(
     throw new Error("Train not found");
   }
 
-  const booking: Booking = {
-    id: bookings.length + 1,
+const booking: Booking = {
+  id: String(bookings.length + 1),
 
-    bookingId: generateBookingId(),
+  bookingId: generateBookingId(),
 
-    pnr: generatePNR(),
+  pnr: generatePNR(),
 
-    train,
+  contactNumber: "", 
 
-    passengers: passengerList,
+  trainId: train.id,
 
-    journeyDate,
+  trainName: train.name,
 
-    bookingDate: new Date().toISOString(),
+  trainNumber: train.number,
 
-    totalFare: calculateFare(
-      train.fare,
-      passengerList.length
-    ),
+  from: train.from,
 
-    status: "Confirmed",
-  };
+  to: train.to,
+
+  journeyDate,
+
+  fare: train.fare,
+
+  totalFare: calculateFare(
+    train.fare,
+    passengerList.length
+  ),
+
+  passengers: passengerList,
+
+  bookedAt: new Date().toISOString(),
+
+  status: "confirmed",
+};
 
   bookings.push(booking);
 

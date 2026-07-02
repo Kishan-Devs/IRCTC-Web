@@ -16,6 +16,7 @@ import Button from "@/components/Button";
 import { Gender } from "@/types/passenger";
 import { Booking } from "@/types/booking";
 import { Train } from "@/types/train";
+import { generateBookingId, generatePNR } from "@/lib/pnr";
 
 interface PassengerFormProps {
   train: Train;
@@ -170,20 +171,31 @@ export default function PassengerForm({
         typeof crypto !== "undefined" && crypto.randomUUID
           ? crypto.randomUUID()
           : `bk_${Date.now()}`,
+
+      bookingId: generateBookingId(),
+
+      pnr: generatePNR(),
+
       contactNumber: contactNumber.replace(/\D/g, ""),
+
       trainId: train.id,
       trainName: train.name,
       trainNumber: train.number,
       from: train.from,
       to: train.to,
+
       journeyDate,
+
       fare: train.fare,
+
       totalFare: train.fare * nooftkts,
+
       passengers: bookingPassengers,
+
       bookedAt: new Date().toISOString(),
+
       status: "pending",
     };
-
     try {
       const existingRaw = localStorage.getItem("bookings");
       const existing = existingRaw ? JSON.parse(existingRaw) : [];
