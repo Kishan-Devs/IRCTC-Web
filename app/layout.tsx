@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "IRCTC Clone",
+  title: "IRCTC - Train Ticket Booking",
   description: "Modern Train Ticket Booking",
 };
 
