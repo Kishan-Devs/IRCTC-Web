@@ -1,6 +1,9 @@
 import { Passenger } from "@/types/passenger";
 
-export type BookingStatus = "pending" | "confirmed";
+export type BookingStatus =
+  | "pending"
+  | "confirmed"
+  | "cancelled";
 
 export interface Booking {
   id: string;

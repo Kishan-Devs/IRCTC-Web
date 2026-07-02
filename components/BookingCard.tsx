@@ -1,12 +1,9 @@
 import {
   CalendarDays,
-  CircleCheckBig,
-  Clock3,
   IndianRupee,
   Ticket,
   Train,
   Users,
-  XCircle,
 } from "lucide-react";
 
 import Card from "@/components/Card";
@@ -21,29 +18,12 @@ interface BookingCardProps {
 export default function BookingCard({
   booking,
 }: BookingCardProps) {
-  const statusColor = {
-    Confirmed:
-      "bg-green-100 text-green-700 border-green-200",
-    Waiting:
-      "bg-yellow-100 text-yellow-700 border-yellow-200",
-    Cancelled:
-      "bg-red-100 text-red-700 border-red-200",
-  };
+const statusColor = {
+  pending: "bg-yellow-100 text-yellow-700 border-yellow-200",
+  confirmed: "bg-green-100 text-green-700 border-green-200",
+  cancelled: "bg-red-100 text-red-700 border-red-200",
+} as const;
 
-  const StatusIcon = () => {
-    switch (booking.status) {
-      case "Confirmed":
-        return (
-          <CircleCheckBig className="h-5 w-5" />
-        );
-
-      case "Cancelled":
-        return <XCircle className="h-5 w-5" />;
-
-      default:
-        return <Clock3 className="h-5 w-5" />;
-    }
-  };
 
   return (
     <Card className="transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -64,12 +44,13 @@ export default function BookingCard({
           </p>
         </div>
 
-        <div
-          className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold ${statusColor[booking.status]}`}
-        >
-
-          {booking.status}
-        </div>
+      <div
+        className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold ${
+          statusColor[booking.status]
+        }`}
+      >
+        {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+      </div>
       </div>
 
       {/* Booking Details */}

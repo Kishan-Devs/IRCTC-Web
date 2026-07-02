@@ -22,9 +22,9 @@ export interface Passenger {
 
   nooftkts: number;
   
-  berthPreference: BerthPreference;
+  berthPreference?: BerthPreference;
 
-  mobile: string;
+  mobile?: string;
 
-  email: string;
+  email?: string;
 }
