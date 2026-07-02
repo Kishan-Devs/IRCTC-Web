@@ -1,65 +1,148 @@
-import Image from "next/image";
+import Hero from "@/components/Hero";
+import SearchForm from "@/components/SearchForm";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Search Section */}
+      <section
+        id="search"
+        className="container -mt-16 relative z-20 pb-20"
+      >
+      </section>
+
+      {/* Features */}
+      <section className="relative overflow-hidden py-16">
+        {/* Ambient background blobs */}
+        <div className="pointer-events-none absolute left-1/4 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-300/20 blur-3xl" />
+        <div className="pointer-events-none absolute right-1/4 top-32 h-72 w-72 translate-x-1/2 rounded-full bg-indigo-300/20 blur-3xl" />
+
+        <div className="container relative">
+          <div className="feature-fade mb-14 text-center">
+            <span className="inline-block rounded-full border border-slate-200/80 bg-white/60 px-4 py-1.5 text-xs font-medium tracking-wide text-slate-500 backdrop-blur-md">
+              Built with Next.js 15
+            </span>
+
+            <h2 className="mt-4 text-3xl font-bold text-slate-800 sm:text-4xl">
+              Why Choose{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-500 bg-clip-text text-transparent">
+                IRCTC ?
+              </span>
+            </h2>
+
+            <p className="mx-auto mt-3 max-w-xl text-slate-600">
+              A simple, modern and responsive train ticket booking
+              experience.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Card 1 */}
+            <div
+              className="feature-card feature-fade group relative overflow-hidden rounded-2xl border border-white/50 bg-white/50 p-8 shadow-sm backdrop-blur-xl"
+              style={{ animationDelay: "0ms" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <div className="feature-glow absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-400/30 to-transparent blur-2xl transition-all duration-700 group-hover:scale-150" />
+
+              <span className="relative text-sm font-bold tracking-wider text-blue-500/70">
+                01
+              </span>
+
+              <h3 className="relative mt-3 text-xl font-semibold text-slate-800">
+                Search Trains
+              </h3>
+
+              <p className="relative mt-3 text-slate-600">
+                Search trains by source, destination, journey date and
+                travel class.
+              </p>
+
+              <div className="relative mt-6 h-px w-full bg-gradient-to-r from-blue-400/0 via-blue-400/40 to-blue-400/0 transition-all duration-500 group-hover:via-blue-500/80" />
+            </div>
+
+            {/* Card 2 */}
+            <div
+              className="feature-card feature-fade group relative overflow-hidden rounded-2xl border border-white/50 bg-white/50 p-8 shadow-sm backdrop-blur-xl"
+              style={{ animationDelay: "120ms" }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <div className="feature-glow absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-indigo-400/30 to-transparent blur-2xl transition-all duration-700 group-hover:scale-150" />
+
+              <span className="relative text-sm font-bold tracking-wider text-indigo-500/70">
+                02
+              </span>
+
+              <h3 className="relative mt-3 text-xl font-semibold text-slate-800">
+                Easy Booking
+              </h3>
+
+              <p className="relative mt-3 text-slate-600">
+                Complete passenger details and dummy payment within a
+                few clicks.
+              </p>
+
+              <div className="relative mt-6 h-px w-full bg-gradient-to-r from-indigo-400/0 via-indigo-400/40 to-indigo-400/0 transition-all duration-500 group-hover:via-indigo-500/80" />
+            </div>
+
+            {/* Card 3 */}
+            <div
+              className="feature-card feature-fade group relative overflow-hidden rounded-2xl border border-white/50 bg-white/50 p-8 shadow-sm backdrop-blur-xl"
+              style={{ animationDelay: "240ms" }}
+            >
+              <div className="feature-glow absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-emerald-400/30 to-transparent blur-2xl transition-all duration-700 group-hover:scale-150" />
+
+              <span className="relative text-sm font-bold tracking-wider text-emerald-500/70">
+                03
+              </span>
+
+              <h3 className="relative mt-3 text-xl font-semibold text-slate-800">
+                Instant Ticket
+              </h3>
+
+              <p className="relative mt-3 text-slate-600">
+                Receive a generated PNR, Booking ID and printable
+                ticket instantly.
+              </p>
+
+              <div className="relative mt-6 h-px w-full bg-gradient-to-r from-emerald-400/0 via-emerald-400/40 to-emerald-400/0 transition-all duration-500 group-hover:via-emerald-500/80" />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <style>{`
+          @keyframes feature-fade-up {
+            from {
+              opacity: 0;
+              transform: translateY(16px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .feature-fade {
+            animation: feature-fade-up 0.6s ease-out both;
+          }
+
+          .feature-card {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease, background-color 0.4s ease,
+              border-color 0.4s ease;
+          }
+
+          .feature-card:hover {
+            transform: translateY(-6px) scale(1.015);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.18);
+          }
+        `}</style>
+      </section>
+
+
+    </>
   );
 }
